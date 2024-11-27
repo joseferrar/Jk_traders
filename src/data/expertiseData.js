@@ -40,7 +40,7 @@ export const expertiseData = [
         img: 'img/blog-8.jpeg'
     },
     {
-        id: 7,
+        id: 9,
         title: 'Schools',
         img: 'img/blog-9.jpeg'
     },

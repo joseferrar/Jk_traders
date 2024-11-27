@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../../assets/images/logo.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function CustomerNavbar() {
     const navigate = useNavigate();
     const location = useLocation()
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     return (
         <div>
@@ -38,19 +50,11 @@ function CustomerNavbar() {
                         <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
                             <div class="navbar-nav ms-auto mx-xl-auto p-0">
                                 <a href="/" class={`nav-item nav-link ${location.pathname === '/' ? 'active' : null}`}>Home</a>
-                                <a href="/about" class={`nav-item nav-link ${location.pathname === '/about' ? 'active' : null}`}>About</a>
-                                <a href="service.html" class="nav-item nav-link">Services</a>
-                                <a href="project.html" class="nav-item nav-link">Projects</a>
-                                <div class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                                    <div class="dropdown-menu rounded">
-                                        <a href="blog.html" class="dropdown-item">Our Blog</a>
-                                        <a href="team.html" class="dropdown-item">Our Team</a>
-                                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                        <a href="404.html" class="dropdown-item">404 Page</a>
-                                    </div>
-                                </div>
-                                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                                <a href="/about" class={`nav-item nav-link ms-2 ${location.pathname === '/about' ? 'active' : null}`}>About</a>
+                                <a href="service.html" class="nav-item nav-link  ms-2">Services</a>
+                                <a href="project.html" class="nav-item nav-link  ms-2">Projects</a>
+                                <a href="contact.html" class="nav-item nav-link  ms-2">Contact</a>
+                                {isMobile ? <a href="/dealership" class="ms-2"><button type="button" class="px-4 py-sm-3 mb-2 px-sm-5 btn btn-primary my-button rounded-pill border-0 animated fadeInRight">DealerShip</button></a> : null}
                             </div>
                         </div>
                         <div class="d-none d-xl-flex flex-shirink-0">
@@ -65,6 +69,9 @@ function CustomerNavbar() {
                             <div class="d-flex flex-column pe-4 border-end">
                                 <span class="text-dark">Have any questions?</span>
                                 <span class="text-dark">Call: + 0123 456 7890</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center ms-4 ">
+                                {location.pathname === '/dealership' ? null : <a href="/dealership" class="ms-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary my-button rounded-pill border-0 animated fadeInRight">DealerShip</button></a>}
                             </div>
                         </div>
                     </nav>

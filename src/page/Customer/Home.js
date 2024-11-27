@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import AboutUs from '../../components/AboutUs';
 import OurServices from './OurServices';
 import TeamList from '../../components/TeamList';
+import ContactUs from '../../components/ContactUs';
 
 function Home() {
     const navigate = useNavigate();
@@ -29,6 +30,7 @@ function Home() {
             <AboutUs />
             <OurServices />
             <TeamList />
+            <ContactUs />
         </div>
     )
 }

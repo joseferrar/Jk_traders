@@ -377,6 +377,7 @@
 .services-item:hover .services-content-icon h4 {
     color: var(--bs-white);
 }
+
 /*** Services End ***/
 
 
@@ -633,22 +634,35 @@
 .contact-detail::before {
     position: absolute;
     content: "";
-    height: 50%;
+    height: 40%;
     width: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(rgb(210, 243, 235, 1), rgba(230, 250, 245, .3)), url(../img/background.jpg) center center no-repeat;
+    background-color: #dedede;
+    background-size: cover;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.dealership-detail::before {
+    position: absolute;
+    content: "";
+    height: 40%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: url(../img/deal.jpeg) center center no-repeat;
     background-size: cover;
     border-radius: 10px;
     z-index: -1;
 }
 
 .contact-map {
-    background: #26d48c;
+    background: var(--bs-secondary)
 }
 
 .contact-form {
-    background: #26d48c;
+    background: var(--bs-secondary)
 }
 
 /*** Contact End ***/
@@ -694,10 +708,62 @@
 .my-button {
     background: var(--bs-secondary)
 }
+
 .my-button:hover {
-  background: var(--bs-dark)
+    background: var(--bs-dark)
 }
+
 .expertise-card {
     cursor: pointer;
+}
+
+/* Magic Cursor Outer */
+.magic-cursor-outer {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    /* Customize the outer cursor border color */
+    border-radius: 50%;
+    pointer-events: none;
+    /* Allow interaction with underlying elements */
+    transition: transform 0.1s ease-out, width 0.2s, height 0.2s;
+    /* Smooth animations */
+    z-index: 9999;
+}
+
+/* Magic Cursor Inner */
+.magic-cursor-inner {
+    position: fixed;
+    width: 1px;
+    height: 1px;
+    background-color: black;
+    /* Customize the inner cursor fill color */
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.05s ease-out;
+    /* Smooth animations */
+    z-index: 10000;
+}
+
+/* Hover Effect */
+.magic-cursor-outer.hovered {
+    width: 45px;
+    height: 45px;
+    border: 2px solid rgba(0, 0, 0, 0.8);
+}
+
+.magic-cursor-inner.hovered {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+[data-hover="true"]:hover ~ .magic-cursor-outer {
+  transform: scale(2);
+}
+
+.dealership-form {
+    background-color: #dedede;
 }
 /*** Footer End ***/

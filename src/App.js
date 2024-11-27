@@ -12,6 +12,7 @@ import AdminNavbar from './components/Navbar/AdminNavbar';
 import UnAuthRoute from './page/UnAuthRoute';
 import AddGallery from './page/Admin/AddGallery';
 import About from './page/Customer/About';
+import DealerShip from './components/DealerShip';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -32,6 +33,11 @@ function App() {
         <Route path="/about" element={
           <UnAuthRoute>
             <About />
+          </UnAuthRoute>
+        } />
+        <Route path="/dealership" element={
+          <UnAuthRoute>
+            <DealerShip />
           </UnAuthRoute>
         } />
         <Route
