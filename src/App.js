@@ -1,5 +1,5 @@
 // import './App.css';
-import { Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ArrowButton from './components/Button/ArrowButton';
 import CustomerNavbar from './components/Navbar/CustomerNavbar';
 import Home from './page/Customer/Home';
@@ -13,10 +13,29 @@ import UnAuthRoute from './page/UnAuthRoute';
 import AddGallery from './page/Admin/AddGallery';
 import About from './page/Customer/About';
 import DealerShip from './components/DealerShip';
+import MyDealers from './page/Admin/MyDealers';
+import Footer from './components/Footer';
+import { useEffect, useState } from 'react';
+import MagicCursor from './components/Button/CustomCusor';
 
 function App() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [user] = useAuthState(auth);
+
+  useEffect(() => {
+    const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+        window.removeEventListener("resize", handleResize);
+    };
+}, []);
+
   return (
+    <BrowserRouter>
+    {isMobile ? null : <MagicCursor/>}
     <div>
       {user ? <AdminNavbar /> : <CustomerNavbar />}
       <Routes>
@@ -56,11 +75,21 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/mydealers"
+          element={
+            <ProtectedRoute>
+              <MyDealers />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
 
       {/* <!-- Back to Top --> */}
+      <Footer />
       <ArrowButton />
     </div>
+    </BrowserRouter>
   );
 }
 

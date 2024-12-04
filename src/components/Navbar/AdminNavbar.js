@@ -1,13 +1,14 @@
 import React from 'react'
+import { signOut } from 'firebase/auth';
 import logo from '../../assets/images/logo.png';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { auth } from "../../config/firebase";
 
 function AdminNavbar() {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogout = async () => {
         await signOut(auth);
@@ -35,7 +36,7 @@ function AdminNavbar() {
             <div class="container-fluid bg-light">
                 <div class="container">
                     <nav class="navbar navbar-dark navbar-expand-lg py-0">
-                        <a href="index.html" class="navbar-brand">
+                        <a href="/" class="navbar-brand">
                             {/* <h1 class="text-white fw-bold d-block">High<span class="text-secondary">Tech</span> </h1> */}
                             <img src={logo} style={{ width: 100, height: 70 }} />
                         </a>
@@ -45,9 +46,9 @@ function AdminNavbar() {
                         </button>
                         <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
                             <div class="navbar-nav ms-auto mx-xl-auto p-0">
-                                <a href="/dashboard" class="nav-item nav-link active text-primary">Dashboard</a>
-                                <a href="/addGallery" class="nav-item nav-link">Add Gallery</a>
-                                <a href="project.html" class="nav-item nav-link">Projects</a>
+                                <p onClick={() => navigate('/dashboard')} class={`nav-item nav-link ${location.pathname === '/dashboard' ? 'active' : null} text-primary header-link`}>Dashboard</p>
+                                <p onClick={() => navigate('/addGallery')} class={`nav-item nav-link ${location.pathname === '/addGallery' ? 'active' : null} text-primary header-link`}>Add Gallery</p>
+                                <p onClick={() => navigate('/mydealers')} class={`nav-item nav-link ${location.pathname === '/mydealers' ? 'active' : null} text-primary header-link`}>Dealers</p>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu rounded">

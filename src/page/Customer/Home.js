@@ -29,7 +29,7 @@ function Home() {
             <AnalysisBanner />
             <AboutUs />
             <OurServices />
-            <TeamList />
+            {/* <TeamList /> */}
             <ContactUs />
         </div>
     )

@@ -674,12 +674,14 @@
 .footer .help-link a,
 .footer .contact-link a {
     transition: .5s;
+    color: var(--bs-dark) !important;
 }
 
 .footer .short-link a:hover,
 .footer .help-link a:hover,
 .footer .contact-link a:hover {
     letter-spacing: 1px;
+
 }
 
 .footer .hightech-link a:hover {
@@ -765,5 +767,10 @@
 
 .dealership-form {
     background-color: #dedede;
+}
+
+.header-link {
+    cursor: pointer;
+    color: var(--bs-dark) !important;
 }
 /*** Footer End ***/

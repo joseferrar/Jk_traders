@@ -24,8 +24,8 @@ function CustomerNavbar() {
                 <div class="container">
                     <div class="d-flex justify-content-round topbar">
                         <div class="top-info">
-                            <small class="me-3 text-white"><a href="#"><i class="fas fa-map-marker-alt me-2 nav-header-icon"></i></a>23 Ranking Street, New York</small>
-                            <small class="me-3 text-white"><a href="#"><i class="fas fa-envelope me-2 nav-header-icon"></i></a>Email@Example.com</small>
+                            <small class="me-3 text-white"><a href="#"><i class="fas fa-map-marker-alt me-2 nav-header-icon"></i></a>No. 5D/484, NGO Colony, Tuticorin</small>
+                            <small class="me-3 text-white"><a href="#"><i class="fas fa-envelope me-2 nav-header-icon"></i></a> jksgypsumplaster@gmail.com</small>
                         </div>
                         <div id="note" class="text-white d-none d-xl-flex"><small>Note : We help you to build your dream</small></div>
                         <div class="top-link">
@@ -51,9 +51,9 @@ function CustomerNavbar() {
                             <div class="navbar-nav ms-auto mx-xl-auto p-0">
                                 <a href="/" class={`nav-item nav-link ${location.pathname === '/' ? 'active' : null}`}>Home</a>
                                 <a href="/about" class={`nav-item nav-link ms-2 ${location.pathname === '/about' ? 'active' : null}`}>About</a>
-                                <a href="service.html" class="nav-item nav-link  ms-2">Services</a>
-                                <a href="project.html" class="nav-item nav-link  ms-2">Projects</a>
-                                <a href="contact.html" class="nav-item nav-link  ms-2">Contact</a>
+                                <a href="/" class="nav-item nav-link  ms-2">Services</a>
+                                <a href="/" class="nav-item nav-link  ms-2">Projects</a>
+                                <a href="/" class="nav-item nav-link  ms-2">Contact</a>
                                 {isMobile ? <a href="/dealership" class="ms-2"><button type="button" class="px-4 py-sm-3 mb-2 px-sm-5 btn btn-primary my-button rounded-pill border-0 animated fadeInRight">DealerShip</button></a> : null}
                             </div>
                         </div>
@@ -68,7 +68,7 @@ function CustomerNavbar() {
                             </div>
                             <div class="d-flex flex-column pe-4 border-end">
                                 <span class="text-dark">Have any questions?</span>
-                                <span class="text-dark">Call: + 0123 456 7890</span>
+                                <span class="text-dark">Call: + +91 90808 10258</span>
                             </div>
                             <div class="d-flex align-items-center justify-content-center ms-4 ">
                                 {location.pathname === '/dealership' ? null : <a href="/dealership" class="ms-2"><button type="button" class="px-4 py-sm-3 px-sm-5 btn btn-primary my-button rounded-pill border-0 animated fadeInRight">DealerShip</button></a>}
